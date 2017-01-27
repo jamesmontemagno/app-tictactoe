@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToe.View.GamePage">
+
+    <Grid Padding="10"
+          ColumnSpacing="10"
+          RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/> <!--Current Player / Winner-->
+            <RowDefinition Height="Auto"/> <!--Reset Button-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play0}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="0"/>
+
+
+        <Button Grid.Row="0"
+                Grid.Column="1"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play1}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="1"/>
+
+
+        <Button Grid.Row="0"
+                Grid.Column="2"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play2}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="2"/>
+
+
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play3}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="3"/>
+
+
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play4}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="4"/>
+
+
+        <Button Grid.Row="1"
+                Grid.Column="2"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play5}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="5"/>
+
+
+        <Button Grid.Row="2"
+                Grid.Column="0"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play6}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="6"/>
+
+
+        <Button Grid.Row="2"
+                Grid.Column="1"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play7}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="7"/>
+
+
+        <Button Grid.Row="2"
+                Grid.Column="2"
+                BackgroundColor="#A9A9A9" 
+                TextColor="White"
+                Text="{Binding Play8}"
+                FontSize="40"
+                Command="{Binding PlayCommand}"
+                CommandParameter="8"/>
+
+        <Label Grid.Row="3"
+               Grid.ColumnSpan="3"
+               Margin="10"
+               HorizontalOptions="Center"
+               Text="{Binding CurrentStatus}"/>
+
+        <Button
+               Grid.Row="4"
+               Grid.ColumnSpan="3"
+               Text="Reset Game"
+               BackgroundColor="#3498db"
+               TextColor="White"
+               Command="{Binding ResetCommand}"/>
+
+
+    </Grid>
+</ContentPage>

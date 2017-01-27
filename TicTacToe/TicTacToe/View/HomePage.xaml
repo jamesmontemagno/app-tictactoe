@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToe.View.HomePage"
+             xmlns:local="clr-namespace:TicTacToe;assembly=TicTacToe"
+             Title="Tic-Tac-Toe Setup">
+    <Grid Padding="15" ColumnSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Margin="10,30"
+               Grid.ColumnSpan="2"
+               Text="Tic-Tac-Toe"
+               HorizontalOptions="Center"
+               FontSize="40"/>
+
+        <Label Grid.Row="1"
+                Text="Player 1"/>
+
+        <Entry Grid.Row="2" 
+               HorizontalOptions="FillAndExpand"
+               Placeholder="Enter Player 1's Name"
+               Text="{Binding Player1}"/>
+        
+        <Label Grid.Column="1"
+               Grid.Row="1"
+               Text="Player 2"/>
+        
+        <Entry Grid.Row="2"
+               Grid.Column="1"
+               HorizontalOptions="FillAndExpand"
+               Placeholder="Enter Player 2's Name"
+               Text="{Binding Player2}"/>
+
+
+        <Button Grid.Row="4"
+                Text="Game History"
+                Command="{Binding HistoryCommand}"
+                BackgroundColor="#2c3e50"
+                TextColor="White"/>
+        
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Text="Start Game"
+                Command="{Binding StartGameCommand}"
+                BackgroundColor="#3498db"
+                TextColor="White"/>
+
+    </Grid>
+    
+</ContentPage>
