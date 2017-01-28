@@ -24,7 +24,8 @@
                FontSize="40"/>
 
         <Label Grid.Row="1"
-                Text="Player 1"/>
+               Text="Player 1"
+               AutomationId="Player1Name"/>
 
         <Entry Grid.Row="2" 
                HorizontalOptions="FillAndExpand"
@@ -39,7 +40,8 @@
                Grid.Column="1"
                HorizontalOptions="FillAndExpand"
                Placeholder="Enter Player 2's Name"
-               Text="{Binding Player2}"/>
+               Text="{Binding Player2}"
+               AutomationId="Player1Name"/>
 
 
         <Button Grid.Row="4"
@@ -53,7 +55,8 @@
                 Text="Start Game"
                 Command="{Binding StartGameCommand}"
                 BackgroundColor="#3498db"
-                TextColor="White"/>
+                TextColor="White"
+               AutomationId="StartGameButton"/>
 
     </Grid>
     

@@ -12,6 +12,7 @@ namespace TicTacToe
         public string[,] CurrentGame { get; set; }
         bool GameOver { get; set; }
         bool Player1Up { get; set; } = true;
+        int Moves { get; set; } = 0;
         public GameViewModel(Page page) :base(page)
         {
             CurrentGame = new string[3, 3];
@@ -87,8 +88,16 @@ namespace TicTacToe
             get
             {
                 return resetCommand ??
-                  (resetCommand = new Command(() =>
+                  (resetCommand = new Command(async () =>
                   {
+                      //check if game is over
+                      if(!GameOver)
+                      {
+                          var result = await UserDialogs.Instance.ConfirmAsync("The game isn't over yet, are you sure you want to reset the game?", "Reset?");
+                          if (!result)
+                              return;
+                      }
+
                       CurrentGame = new string[3, 3];
                       Play0 = string.Empty;
                       Play1 = string.Empty;
@@ -101,6 +110,7 @@ namespace TicTacToe
                       Play8 = string.Empty;
                       Player1Up = true;
                       GameOver = false;
+                      Moves = 0;
                       CurrentStatus = $"{Settings.Player1} is up.";
                   }));
             }
@@ -212,7 +222,7 @@ namespace TicTacToe
                 default:
                     return;
             }
-
+            Moves++;
             await CheckResults();
         }
         //check for win or draw.
@@ -270,18 +280,50 @@ namespace TicTacToe
 
         async Task InsertWinner(int winner)
         {
+            var winnerName = string.Empty;
+            bool isDraw = false;
+            var date = DateTime.UtcNow;
             switch(winner)
             {
                 case 0:
+                    winnerName = Settings.Player1;
                     await UserDialogs.Instance.AlertAsync("Game is a draw! Game has been recorded. Hit reset to start a new game.", "Draw!");
                     break;
                 case 1:
+                    winnerName = Settings.Player2;
                     await UserDialogs.Instance.AlertAsync($"{Settings.Player1} won this game! Game has been recorded. Hit reset to start a new game.", $"{Settings.Player1} Wins!");
                     break;
                 case 2:
+                    isDraw = false;
                     await UserDialogs.Instance.AlertAsync($"{Settings.Player2} won this game! Game has been recorded. Hit reset to start a new game.", $"{Settings.Player2} Wins!");
                     break;
             }
+
+            var game = new Game
+            {
+                Winner = winnerName,
+                Player1 = Settings.Player1,
+                Player2 = Settings.Player2,
+                DateUtc = date,
+                IsDraw = isDraw,
+                Moves = Moves
+            };
+
+            var progress = UserDialogs.Instance.Loading("Saving game...", maskType: MaskType.Gradient);
+            try
+            {
+                IsBusy = true;
+                await DependencyService.Get<AzureService>().Add(game);
+            }
+            catch
+            {
+            }
+            finally
+            {
+                progress.Hide();
+                IsBusy = false;
+            }
+
         }
     }
 }

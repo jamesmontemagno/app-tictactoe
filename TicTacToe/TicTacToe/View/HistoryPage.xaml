@@ -2,64 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TicTacToe.View.HistoryPage"
-             Title="ListView">
-  <ListView ItemsSource="{Binding ItemsGrouped}"
+             Title="History">
+    <ListView ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
-            ItemSelected="Handle_ItemSelected"
             HasUnevenRows="true"
-            GroupShortNameBinding="{Binding Key}"
-            IsGroupingEnabled="true"
-            GroupDisplayBinding="{Binding Key}"
-            IsPullToRefreshEnabled="true"
-            CachingStrategy="RecycleElement"
-            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-            RefreshCommand="{Binding RefreshDataCommand}">
-    <ListView.Header>
-      <StackLayout Padding="10" 
-                   Orientation="Horizontal"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="#dadada">
-        <Label Text="Header"
-               HorizontalTextAlignment="Center"
-               HorizontalOptions="FillAndExpand"
-               TextColor="Black"
-               FontAttributes="Bold"/>
-      </StackLayout>
-    </ListView.Header>
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell Text="{Binding Text}"
-                  Detail="{Binding Detail}"/>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-    <ListView.Footer>
-      <StackLayout Padding="10"
-                   Orientation="Horizontal"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="#dadada">
-        <Label Text="Footer" 
-               HorizontalTextAlignment="Center" 
-               HorizontalOptions="FillAndExpand" 
-               TextColor="Black"
-               FontAttributes="Bold"/>
-      </StackLayout>
-    </ListView.Footer>
-  </ListView>
+            CachingStrategy="RecycleElement">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding PlayersDisplay}" 
+                               Style="{DynamicResource ListItemTextStyle}" />
+                        <Label Text="{Binding DateDisplay}" 
+                               Style="{DynamicResource ListItemDetailTextStyle}"/>
+                        <Label Text="{Binding WinnerDisplay}" 
+                               Style="{DynamicResource ListItemTextStyle}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
