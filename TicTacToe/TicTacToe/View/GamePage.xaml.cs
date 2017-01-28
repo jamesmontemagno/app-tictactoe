@@ -20,10 +20,15 @@ namespace TicTacToe.View
 
         protected override bool OnBackButtonPressed()
         {
-            UserDialogs.Instance.ConfirmAsync("Are you sure you want to leave your current game?", "Leave game").ContinueWith(async (exit) =>
+            UserDialogs.Instance.ConfirmAsync("Are you sure you want to leave your current game?", "Leave game").ContinueWith((exit) =>
             {
                 if (exit.Result)
-                    await Navigation.PopAsync();
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await Navigation.PopAsync();
+                    });
+                }
             });
 
             return true;

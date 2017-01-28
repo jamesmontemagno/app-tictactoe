@@ -25,7 +25,11 @@ namespace TicTacToe.iOS
 			global::Xamarin.Forms.Forms.Init ();
 			LoadApplication (new TicTacToe.App ());
 
-			return base.FinishedLaunching (app, options);
+#if DEBUG
+            Xamarin.Calabash.Start();
+#endif
+
+            return base.FinishedLaunching (app, options);
 		}
 	}
 }
