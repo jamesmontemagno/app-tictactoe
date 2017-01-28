@@ -47,7 +47,42 @@ namespace TicTacToe.UITests
             app.DismissKeyboard();
 
             Assert.True(app.Query("StartGame").First().Enabled, "Button should be enabled");
-            app.Repl();
+        }
+
+        [Test]
+        public void PlayGame()
+        {
+            app.Screenshot("First screen.");
+            app.EnterText("Player1", "Heather");
+            app.EnterText("Player2", "James");
+            app.DismissKeyboard();
+            app.Screenshot("Name Entered.");
+            app.Tap("StartGameButton");
+
+            app.WaitForElement("Play0");
+            app.Tap("Play0");
+
+            app.Screenshot("Play 1.");
+
+            app.Tap("Play2");
+
+            app.Screenshot("Play 2.");
+
+            app.Tap("Play4");
+
+            app.Screenshot("Play 3.");
+
+            app.Tap("Play5");
+
+            app.Screenshot("Play 4.");
+
+            app.Tap("Play8");
+
+            app.Screenshot("Play 5.");
+
+            app.WaitForElement("Heather Wins!");
+
+            app.Screenshot("Win dialog up.");
         }
     }
 }
