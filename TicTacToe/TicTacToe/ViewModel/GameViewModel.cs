@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Microsoft.Azure.Mobile.Analytics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -97,6 +98,11 @@ namespace TicTacToe
                           if (!result)
                               return;
                       }
+
+                      Analytics.TrackEvent("GameReset", new Dictionary<string, string>
+                      {
+                          ["WasFinished"] = GameOver ? "Yes" : "No"
+                      });
 
                       CurrentGame = new string[3, 3];
                       Play0 = string.Empty;
@@ -222,6 +228,12 @@ namespace TicTacToe
                 default:
                     return;
             }
+
+            Analytics.TrackEvent($"Move{Moves}", new Dictionary<string, string>
+            {
+                ["Play"] = number
+            });
+
             Moves++;
             await CheckResults();
         }
@@ -298,6 +310,12 @@ namespace TicTacToe
                     await UserDialogs.Instance.AlertAsync($"{Settings.Player2} won this game! Game has been recorded. Hit reset to start a new game.", $"{Settings.Player2} Wins!");
                     break;
             }
+
+            Analytics.TrackEvent("GameFinished", new Dictionary<string, string>
+            {
+                ["Winner"] = winner == 1 ? "X" : winner == 2 ? "O" : "Draw",
+                ["Moves"] = Moves.ToString()
+            });
 
             var game = new Game
             {
