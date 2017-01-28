@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TicTacToe.View.HomePage"
              xmlns:local="clr-namespace:TicTacToe;assembly=TicTacToe"
-             Title="Tic-Tac-Toe Setup">
+             Title="Setup"
+             NavigationPage.BackButtonTitle="Back">
     <Grid Padding="15" ColumnSpacing="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -24,11 +25,12 @@
                FontSize="40"/>
 
         <Label Grid.Row="1"
-                Text="Player 1"/>
+               Text="Player 1"
+               AutomationId="Player1Name"/>
 
         <Entry Grid.Row="2" 
                HorizontalOptions="FillAndExpand"
-               Placeholder="Enter Player 1's Name"
+               Placeholder="Enter Name"
                Text="{Binding Player1}"/>
         
         <Label Grid.Column="1"
@@ -38,8 +40,9 @@
         <Entry Grid.Row="2"
                Grid.Column="1"
                HorizontalOptions="FillAndExpand"
-               Placeholder="Enter Player 2's Name"
-               Text="{Binding Player2}"/>
+               Placeholder="Enter Name"
+               Text="{Binding Player2}"
+               AutomationId="Player1Name"/>
 
 
         <Button Grid.Row="4"
@@ -53,7 +56,8 @@
                 Text="Start Game"
                 Command="{Binding StartGameCommand}"
                 BackgroundColor="#3498db"
-                TextColor="White"/>
+                TextColor="White"
+               AutomationId="StartGameButton"/>
 
     </Grid>
     
