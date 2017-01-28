@@ -1,9 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.Azure.Mobile;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace TicTacToe.iOS
 {
@@ -11,7 +14,7 @@ namespace TicTacToe.iOS
 	// User Interface of the application, as well as listening (and optionally responding) to 
 	// application events from iOS.
 	[Register("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+	public partial class AppDelegate : FormsApplicationDelegate
 	{
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -22,12 +25,14 @@ namespace TicTacToe.iOS
 		//
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			global::Xamarin.Forms.Forms.Init ();
-			LoadApplication (new TicTacToe.App ());
+            MobileCenter.Configure("b750cc7d-c006-44f4-ac96-511672277766");
 
 #if DEBUG
             Xamarin.Calabash.Start();
 #endif
+
+            Forms.Init ();
+			      LoadApplication (new App());
 
             return base.FinishedLaunching (app, options);
 		}

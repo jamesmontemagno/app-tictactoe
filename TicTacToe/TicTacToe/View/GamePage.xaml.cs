@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Microsoft.Azure.Mobile.Analytics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,11 @@ namespace TicTacToe.View
 			InitializeComponent ();
             BindingContext = new GameViewModel(this);
             Title = $"{Settings.Current.Player1} vs. {Settings.Current.Player2}";
-		}
+            Analytics.TrackEvent("Navigation", new Dictionary<string, string>
+            {
+                ["Page"] = "Game"
+            });
+        }
 
         protected override bool OnBackButtonPressed()
         {

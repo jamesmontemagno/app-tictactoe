@@ -25,7 +25,7 @@ namespace TicTacToe
         public string AzureVersion { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
-        public string WinnerDisplay => IsDraw ? $"Draw in {Moves} moves" : $"{Winner} won in {Moves} moves";
+        public string WinnerDisplay => IsDraw ? $"Draw!" : $"{Winner} won in {Moves} moves";
 
         [Newtonsoft.Json.JsonIgnore]
         public string PlayersDisplay => $"{Player1} vs. {Player2}";

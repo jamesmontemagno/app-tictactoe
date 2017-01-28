@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Azure.Mobile.Analytics;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -19,6 +20,10 @@ namespace TicTacToe.View
         {
 			InitializeComponent ();
             BindingContext = vm = new HistoryViewModel(this);
+            Analytics.TrackEvent("Navigation", new Dictionary<string,string>
+            {
+                ["Page"] = "History"
+            });
         }
 
         void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
