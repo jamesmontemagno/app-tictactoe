@@ -17,6 +17,7 @@
                         <Label Text="{Binding DateDisplay}" 
                                Style="{DynamicResource ListItemDetailTextStyle}"/>
                         <Label Text="{Binding WinnerDisplay}" 
+                               FontSize="20"
                                Style="{DynamicResource ListItemTextStyle}" />
                     </StackLayout>
                 </ViewCell>
