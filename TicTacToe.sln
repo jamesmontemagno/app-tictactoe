@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.iOS", "TicTacToe\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.UITests", "TicTacToe\TicTacToe.UITests\TicTacToe.UITests.csproj", "{9BAC0F9A-6F7C-4376-AAC1-72843AAB43E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95660932-29FD-452A-84F7-50A662B4AD4A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		TicTacToe\TicTacToe\TicTacToe.projitems*{235b4244-bd72-4fea-b0bd-d1d8bd8945fa}*SharedItemsImports = 13
@@ -136,7 +138,6 @@ Global
 		{D91AD3C2-2EE8-45A1-B7A7-30789D880AB9}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{D91AD3C2-2EE8-45A1-B7A7-30789D880AB9}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{D91AD3C2-2EE8-45A1-B7A7-30789D880AB9}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{D91AD3C2-2EE8-45A1-B7A7-30789D880AB9}.Debug|iPhone.Build.0 = Debug|iPhone
 		{D91AD3C2-2EE8-45A1-B7A7-30789D880AB9}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{D91AD3C2-2EE8-45A1-B7A7-30789D880AB9}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{D91AD3C2-2EE8-45A1-B7A7-30789D880AB9}.Debug|x64.ActiveCfg = Debug|iPhone
