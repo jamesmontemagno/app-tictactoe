@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,10 +27,13 @@ namespace TicTacToe.iOS
 		{
             MobileCenter.Configure("b750cc7d-c006-44f4-ac96-511672277766");
 
-            Forms.Init ();
-			LoadApplication (new App());
+#if DEBUG
+            Xamarin.Calabash.Start();
+#endif
 
-           
+            Forms.Init ();
+			      LoadApplication (new App());
+
             return base.FinishedLaunching (app, options);
 		}
 	}

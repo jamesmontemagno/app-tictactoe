@@ -59,9 +59,12 @@ namespace TicTacToe
                 if (!CrossConnectivity.Current.IsConnected)
                     return;
 
+#if !DEBUG
+
                 await table.PullAsync("all", table.CreateQuery());
 
                 await Client.SyncContext.PushAsync();
+#endif
             }
             catch (Exception ex)
             {

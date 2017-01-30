@@ -298,15 +298,16 @@ namespace TicTacToe
             switch(winner)
             {
                 case 0:
-                    winnerName = Settings.Player1;
+                    isDraw = true;
+                    
                     await UserDialogs.Instance.AlertAsync("Game is a draw! Game has been recorded. Hit reset to start a new game.", "Draw!");
                     break;
                 case 1:
-                    winnerName = Settings.Player2;
+                    winnerName = Settings.Player1;
                     await UserDialogs.Instance.AlertAsync($"{Settings.Player1} won this game! Game has been recorded. Hit reset to start a new game.", $"{Settings.Player1} Wins!");
                     break;
                 case 2:
-                    isDraw = false;
+                    winnerName = Settings.Player2;
                     await UserDialogs.Instance.AlertAsync($"{Settings.Player2} won this game! Game has been recorded. Hit reset to start a new game.", $"{Settings.Player2} Wins!");
                     break;
             }

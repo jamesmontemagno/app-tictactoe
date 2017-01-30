@@ -27,7 +27,8 @@
                 Text="{Binding Play0}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="0"/>
+                CommandParameter="0"
+                AutomationId="Play0"/>
 
 
         <Button Grid.Row="0"
@@ -37,7 +38,8 @@
                 Text="{Binding Play1}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="1"/>
+                CommandParameter="1"
+                AutomationId="Play1"/>
 
 
         <Button Grid.Row="0"
@@ -47,7 +49,8 @@
                 Text="{Binding Play2}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="2"/>
+                CommandParameter="2"
+                AutomationId="Play2"/>
 
 
         <Button Grid.Row="1"
@@ -57,7 +60,8 @@
                 Text="{Binding Play3}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="3"/>
+                CommandParameter="3"
+                AutomationId="Play3"/>
 
 
         <Button Grid.Row="1"
@@ -67,7 +71,8 @@
                 Text="{Binding Play4}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="4"/>
+                CommandParameter="4"
+                AutomationId="Play4"/>
 
 
         <Button Grid.Row="1"
@@ -77,7 +82,8 @@
                 Text="{Binding Play5}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="5"/>
+                CommandParameter="5"
+                AutomationId="Play5"/>
 
 
         <Button Grid.Row="2"
@@ -87,7 +93,8 @@
                 Text="{Binding Play6}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="6"/>
+                CommandParameter="6"
+                AutomationId="Play6"/>
 
 
         <Button Grid.Row="2"
@@ -97,7 +104,8 @@
                 Text="{Binding Play7}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="7"/>
+                CommandParameter="7"
+                AutomationId="Play7"/>
 
 
         <Button Grid.Row="2"
@@ -107,13 +115,15 @@
                 Text="{Binding Play8}"
                 FontSize="40"
                 Command="{Binding PlayCommand}"
-                CommandParameter="8"/>
+                CommandParameter="8"
+                AutomationId="Play8"/>
 
         <Label Grid.Row="3"
                Grid.ColumnSpan="3"
                Margin="10"
                HorizontalOptions="Center"
-               Text="{Binding CurrentStatus}"/>
+               Text="{Binding CurrentStatus}"
+               AutomationId="CurrentStatus"/>
 
         <Button
                Grid.Row="4"
@@ -121,7 +131,8 @@
                Text="Reset Game"
                BackgroundColor="#3498db"
                TextColor="White"
-               Command="{Binding ResetCommand}"/>
+               Command="{Binding ResetCommand}"
+               AutomationId="ResetGame"/>
 
 
     </Grid>
