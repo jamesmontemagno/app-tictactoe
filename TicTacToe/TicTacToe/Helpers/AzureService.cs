@@ -90,7 +90,7 @@ namespace TicTacToe
             await table.InsertAsync(game);
 
             await Sync();
-            //return coffee
+
             return game;
         }
         
