@@ -62,12 +62,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TicTacToe.Droid\TicTacToe.Droid.csproj">
-      <Project>{51c841a6-b90b-4cc1-80a7-c11cb930a25d}</Project>
-      <Name>TicTacToe.Droid</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

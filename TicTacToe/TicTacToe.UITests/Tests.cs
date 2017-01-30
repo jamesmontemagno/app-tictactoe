@@ -36,17 +36,19 @@ namespace TicTacToe.UITests
         public void EnterNames()
         {
             app.Screenshot("First screen.");
-            Assert.IsFalse(app.Query("StartGame").First().Enabled, "Button should not be enabled");
+            Assert.IsFalse(app.Query("StartGameButton").First().Enabled, "Button should not be enabled");
 
             app.EnterText("Player1", "James");
             app.DismissKeyboard();
-
-            Assert.IsFalse(app.Query("StartGame").First().Enabled, "Button should not be enabled");
+            app.Screenshot("Entered Player 1.");
+            Assert.IsFalse(app.Query("StartGameButton").First().Enabled, "Button should not be enabled");
 
             app.EnterText("Player2", "Heather");
             app.DismissKeyboard();
 
-            Assert.True(app.Query("StartGame").First().Enabled, "Button should be enabled");
+            app.Screenshot("Entered Player 2.");
+
+            Assert.True(app.Query("StartGameButton").First().Enabled, "Button should be enabled");
         }
 
         [Test]
