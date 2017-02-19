@@ -240,40 +240,16 @@ namespace TicTacToe
         //check for win or draw.
         async Task CheckResults()
         {
-            //Conditions for winning the game
-            string[,] winningCombos =
+            foreach (var symbol in new List<string> { "X", "O" })
             {
-                {CurrentGame[0,0], CurrentGame[0,1], CurrentGame[0,2]},
-                {CurrentGame[1,0], CurrentGame[1,1], CurrentGame[1,2]},
-                {CurrentGame[2,0], CurrentGame[2,1], CurrentGame[2,2]},
-                {CurrentGame[0,0], CurrentGame[1,0], CurrentGame[2,0]},
-                {CurrentGame[0,1], CurrentGame[1,1], CurrentGame[2,1]},
-                {CurrentGame[0,2], CurrentGame[1,2], CurrentGame[2,2]},
-                {CurrentGame[0,0], CurrentGame[1,1], CurrentGame[2,2]},
-                {CurrentGame[0,2], CurrentGame[1,1], CurrentGame[2,0]}
-            };
-
-            for (int i = 0; i < 8; i++)
-            {
-
-                if ((winningCombos[i, 0] == "X") & (winningCombos[i, 1] == "X") & (winningCombos[i, 2] == "X"))
+                if (GameLogic.IsWinningBoard(CurrentGame, symbol))
                 {
                     GameOver = true;
-                    CurrentStatus = $"{Settings.Player1} Won!";
-                    await InsertWinner(1);
+                    CurrentStatus = symbol == "X" ? $"{Settings.Player1} Won!" : $"{Settings.Player2} Won!";
+                    await InsertWinner(symbol == "X" ? 1 : 2);
                     return;
                 }
-
-                if ((winningCombos[i, 0] == "O") & (winningCombos[i, 1] == "O") & (winningCombos[i, 2] == "O"))
-                {
-                    GameOver = true;
-                    CurrentStatus = $"{Settings.Player2} Won!";
-                    await InsertWinner(2);
-                    return;
-                }
-
             }
-
 
             for (int x = 0; x < 3; x++)
             {
